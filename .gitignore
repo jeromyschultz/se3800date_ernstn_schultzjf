@@ -1,4 +1,4 @@
-.o
-.gcno
-.gcda
-.exe
+*.o
+*.gcno
+*.gcda
+*.exe
