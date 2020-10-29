@@ -11,44 +11,7 @@ int diffBetweenDates(Date date1, Date date2){
   int month2 = date2.getMonth();
   int year2 = date2.getYear();
   int yearsApart = abs(year2 - year1);
-  int monthsApart = 0;
-  int daysApart = 0;
-  // int month;
-  // int year;
-  // if(yearsApart == 0){
-  //   monthsApart = month2 - month1 - 1;
-  //   if(monthsApart >= 0){
-  //     month = month1 + 1;
-  //     for(int i = 0; i < monthsApart; i ++){
-  //       daysApart += getDaysInMonth(month, year1);
-  //       month++;
-  //     }
-  //     daysApart += getDaysInMonth(month1, year1) - day1;
-  //     daysApart += day2;
-  //   } else if (monthsApart == -1){
-  //     daysApart = day2 - day1;
-  //   }
-  // } else {
-  //   if(month1 < month2){
-  //     monthsApart = month2 - month1 - 1 + (12 * yearsApart);
-  //   } else {
-  //     monthsApart = (11 - month1 + month2) + (12 * (yearsApart-1));
-  //   }
-  //   month = (month1 % 12) + 1;
-  //   year = year1;
-  //   for(int i = 0; i < monthsApart; i++){
-  //     daysApart += getDaysInMonth(month, year);
-  //     month += 1;
-  //     if(month > 12){
-  //       month = 1;
-  //       year += 1;
-  //     }
-  //   }
-  //   daysApart += getDaysInMonth(month1, year1) - day1;
-  //   daysApart += day2;
-  //   //get rid of the start dy and end day to get the days in between
-  //   daysApart -= 2;
-  // }
+
 
   int totalDays1 = day1;
   int year = year1;
