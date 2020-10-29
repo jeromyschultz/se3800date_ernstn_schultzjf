@@ -49,3 +49,15 @@ int getDaysInMonth(int m, int y){
     }
   }
 }
+
+boolean isLeapYear(int y){
+  if (y % 4 != 0){
+    return false;
+  } else if (y % 25 != 0){
+    return true;
+  } else if (y % 16 != 0){
+    return false;
+  } else {
+    return true;
+  }
+}
