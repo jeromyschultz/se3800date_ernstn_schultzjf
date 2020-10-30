@@ -11,6 +11,7 @@ int main(int argc, char *argv[]){
   string feature;
   string date1;
   string date2;
+  
   if(argc == 2 && argv[1] == "--help"){
     // printHelpMessage();
     return 1;

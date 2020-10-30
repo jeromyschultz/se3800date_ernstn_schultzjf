@@ -8,12 +8,23 @@
 using namespace std;
 
 bool validateDate(string date){
-  regex exp("(^\\d{1,4}-([1-9]|0[1-9]|1[0-2])-([1-9]|0[1-9]|[12]\\d|3[01])$)");
+  regex exp("(^\\d{1,4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$)");
   bool isDateMatched = regex_match(date, exp);
   if(!isDateMatched){
     cout << "Incorrect date format for : " << date << endl;
     cout << "Correct format: YYYY-MM-DD where YYYY is [0, 9999], MM is [1,12] and DD [1,31]" << endl;
     return 0;
+  } else {
+    string y = date.substr(0, 4);
+    string m = date.substr(5, 2);
+    string d = date.substr(8, 2);
+    int year = stoi(y);
+    int month = stoi(m);
+    int day = stoi(d);
+    if(day > getDaysInMonth(month, year)){
+      cout << "Error: Date " << date << " does not exist on calendar" << endl;
+      return 0;
+    }
   }
   return isDateMatched;
 }
@@ -78,7 +89,7 @@ int diffBetweenDates(Date date1, Date date2){
   }
 
 
-  return totalDays2 - totalDays1;
+  return abs(totalDays2 - totalDays1);
 }
 
 int getDaysInMonth(int m, int y){
