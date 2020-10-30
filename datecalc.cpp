@@ -3,8 +3,20 @@
 #include "datecalc.h"
 #include <cmath>
 #include <string>
+#include <regex>
 #include <iostream>
 using namespace std;
+
+bool validateDate(string date){
+  regex exp("(^\\d{1,4}-([1-9]|0[1-9]|1[0-2])-([1-9]|0[1-9]|[12]\\d|3[01])$)");
+  bool isDateMatched = regex_match(date, exp);
+  if(!isDateMatched){
+    cout << "Incorrect date format for : " << date << endl;
+    cout << "Correct format: YYYY-MM-DD where YYYY is [0, 9999], MM is [1,12] and DD [1,31]" << endl;
+    return 0;
+  }
+  return isDateMatched;
+}
 
 int performFeatureD(string date1, string date2){
   string y1 = date1.substr(0, 4);
@@ -66,7 +78,11 @@ int getDaysInMonth(int m, int y){
     return 30;
   } else {
     if(y%4 == 0) {
-      return 29;
+      if(y%100 == 0 && y%400 != 0){
+        return 28;
+      } else {
+        return 29;
+      }
     } else {
       return 28;
     }
