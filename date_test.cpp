@@ -2,10 +2,12 @@
 #include "datecalc.h"
 #include <gtest/gtest.h>
 
-TEST(DateTest, NaturalNumbers) {
+TEST(DateTest, NormalDay) {
+   Date date1 = Date(30,10,2020)
+   EXPECT_EQ(5, determineDayOfWeek(date1));
 
 }
-
+//
 // TEST(CubeTest, NegativeNumbers) {
 //    EXPECT_EQ(-15625, cube(-25));
 // }
