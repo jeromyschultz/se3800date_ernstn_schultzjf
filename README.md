@@ -8,4 +8,4 @@ supports versions 9.3.0 and later
 DESCRIPTION
 This app has 2 functions. When the -d command is paired with 2 dates, the program will output the difference in days between the dates. When the -w command is paired with a date, the program will output the day of the week for that date. The program will also check for valid date input eg: "10-30-2020" and "2020-2-31" are invalid dates
 LIMITATIONS
-None have come up so far in our testing!
+Only years containing 4 digits will work for the regex
