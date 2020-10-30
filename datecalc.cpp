@@ -1,3 +1,6 @@
+// Jeromy Schultz and Noah Ernst
+// se3800date_ernstn_schultzjf
+// 2020-10-30
 
 #include "date.h"
 #include "datecalc.h"
@@ -7,6 +10,19 @@
 #include <iostream>
 using namespace std;
 
+
+/*
+Prints a message of available commands
+*/
+void printHelpMessage(){
+  cout << "The list of available commands are the following:" << endl;
+  cout << "-d: use this command followed by two dates in the format YYYY-MM-DD to see the number of days between dates" << endl;
+  cout << "-w: use this command followed by a date in the format YYYY-MM-DD to see the day of the week of the specified date" << endl;
+}
+
+/*
+Validates a string in the format YYYY-MM-DD
+*/
 bool validateDate(string date){
   regex exp("(^\\d{1,4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$)");
   bool isDateMatched = regex_match(date, exp);
@@ -29,6 +45,10 @@ bool validateDate(string date){
   return isDateMatched;
 }
 
+/*
+Takes in a validated string in the format YYYY-MM-DD and calls the
+function that returns the day of the week of the date
+*/
 int performFeatureW(string date1){
   string y1 = date1.substr(0, 4);
   string m1 = date1.substr(5, 2);
@@ -40,6 +60,10 @@ int performFeatureW(string date1){
   return determineDayOfWeek(date);
 }
 
+/*
+Take int two validated strings in the format YYYY-MM-DD and calls the
+function that returns the number of days between the two dates
+*/
 int performFeatureD(string date1, string date2){
   string y1 = date1.substr(0, 4);
   string m1 = date1.substr(5, 2);
@@ -57,9 +81,11 @@ int performFeatureD(string date1, string date2){
   Date endDate(day2, month2, year2);
   return diffBetweenDates(startingDate, endDate);
 
-  // cout << "Year 1: "<< year1 << endl << "Month 1: " << month1 << endl << "Day 1:" << day1;
 }
 
+/*
+Returns the number of days between dates
+*/
 int diffBetweenDates(Date date1, Date date2){
   int day1 = date1.getDay();
   int month1 = date1.getMonth();
@@ -92,6 +118,9 @@ int diffBetweenDates(Date date1, Date date2){
   return abs(totalDays2 - totalDays1);
 }
 
+/*
+Returns the number of days in the given month and year
+*/
 int getDaysInMonth(int m, int y){
 
   if((m == 1) || (m == 3) || (m == 5) || (m == 7) || (m == 8) || (m == 10) || (m == 12)){
@@ -148,17 +177,6 @@ int determineDayOfWeek(Date date1){
 
 }
 
-bool isLeapYear(int y){
-  if (y % 4 != 0){
-    return false;
-  } else if (y % 25 != 0){
-    return true;
-  } else if (y % 16 != 0){
-    return false;
-  } else {
-    return true;
-  }
-}
 
 int staggerMonths(int m){
   int x = 0;

@@ -1,3 +1,7 @@
+// Jeromy Schultz and Noah Ernst
+// se3800date_ernstn_schultzjf
+// 2020-10-30
+
 #include <iostream>
 #include <algorithm>
 #include <string>
@@ -5,17 +9,15 @@
 #include "datecalc.h"
 using namespace std;
 
+
 int main(int argc, char *argv[]){
   string daysOfWeek[7] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
   string command;
   string feature;
   string date1;
   string date2;
-  
-  if(argc == 2 && argv[1] == "--help"){
-    // printHelpMessage();
-    return 1;
-} else if (argc == 4 || argc == 5){
+
+  if (argc == 3 ||argc == 4 || argc == 5){
     command = argv[1];
     transform(command.begin(), command.end(), command.begin(), ::tolower);
     if(command == "datecalc"){
@@ -35,12 +37,12 @@ int main(int argc, char *argv[]){
           cout << daysOfWeek[dayOfWeek] << endl;
           return 1;
         }
+      } else if(feature == "--help"){
+        printHelpMessage();
       }
     } else {
       cout << "Dont recognize command " << command << endl;
       return 0;
     }
   }
-
-
 }

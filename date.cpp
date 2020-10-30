@@ -1,4 +1,6 @@
-
+// Jeromy Schultz and Noah Ernst
+// se3800date_ernstn_schultzjf
+// 2020-10-30
 
 #include "date.h"
 using namespace std;
