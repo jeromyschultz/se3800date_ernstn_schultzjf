@@ -2,6 +2,29 @@
 #include "date.h"
 #include "datecalc.h"
 #include <cmath>
+#include <string>
+#include <iostream>
+using namespace std;
+
+int performFeatureD(string date1, string date2){
+  string y1 = date1.substr(0, 4);
+  string m1 = date1.substr(5, 2);
+  string d1 = date1.substr(8, 2);
+  string y2 = date2.substr(0, 4);
+  string m2 = date2.substr(5, 2);
+  string d2 = date2.substr(8, 2);
+  int year1 = stoi(y1);
+  int month1 = stoi(m1);
+  int day1 = stoi(d1);
+  int year2 = stoi(y2);
+  int month2 = stoi(m2);
+  int day2 = stoi(d2);
+  Date startingDate(day1, month1, year1);
+  Date endDate(day2, month2, year2);
+  return diffBetweenDates(startingDate, endDate);
+
+  // cout << "Year 1: "<< year1 << endl << "Month 1: " << month1 << endl << "Day 1:" << day1;
+}
 
 int diffBetweenDates(Date date1, Date date2){
   int day1 = date1.getDay();
