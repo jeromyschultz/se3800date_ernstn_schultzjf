@@ -24,7 +24,7 @@ void printHelpMessage(){
 Validates a string in the format YYYY-MM-DD
 */
 bool validateDate(string date){
-  regex exp("(^\\d{1,4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$)");
+  regex exp("(^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$)");
   bool isDateMatched = regex_match(date, exp);
   if(!isDateMatched){
     cout << "Incorrect date format for : " << date << endl;
