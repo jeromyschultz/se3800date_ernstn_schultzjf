@@ -18,6 +18,17 @@ bool validateDate(string date){
   return isDateMatched;
 }
 
+int performFeatureW(string date1){
+  string y1 = date1.substr(0, 4);
+  string m1 = date1.substr(5, 2);
+  string d1 = date1.substr(8, 2);
+  int year1 = stoi(y1);
+  int month1 = stoi(m1);
+  int day1 = stoi(d1);
+  Date date(day1, month1, year1);
+  return determineDayOfWeek(date);
+}
+
 int performFeatureD(string date1, string date2){
   string y1 = date1.substr(0, 4);
   string m1 = date1.substr(5, 2);

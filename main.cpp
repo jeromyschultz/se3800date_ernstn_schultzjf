@@ -6,6 +6,7 @@
 using namespace std;
 
 int main(int argc, char *argv[]){
+  string daysOfWeek[6] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
   string command;
   string feature;
   string date1;
@@ -27,8 +28,12 @@ int main(int argc, char *argv[]){
             return 1;
           }
       } else if(feature == "-w" || feature == "-W"){
-        //Ernst put your stuff here
-        return 1;
+        date1 = argv[3];
+        if(validateDate(date1)){
+          int dayOfWeek = performFeatureW(date1);
+          cout << daysOfWeek[dayOfWeek] << endl;
+          return 1;
+        }
       }
     } else {
       cout << "Dont recognize command " << command << endl;
