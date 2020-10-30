@@ -7,8 +7,22 @@
 #include <gtest/gtest.h>
 
 TEST(DateTest, NormalDay) {
-   Date date1 = Date(30,10,2020)
+   Date date1 = Date(30,10,2020);
+   Date date2 = Date(28,9,2020);
+   Date date3 = Date(10,6,2014);
    EXPECT_EQ(5, determineDayOfWeek(date1));
+   EXPECT_EQ(2, determineDayOfWeek(date3));
+   EXPECT_EQ(1, determineDayOfWeek(date2));
+
+}
+
+TEST(DateTest, LeapYears){
+  Date date1 = Date(29,2,2020);
+  Date date2 = Date(29,2,2016);
+  Date date3 = Date(29,2,2012);
+  EXPECT_EQ(6, determineDayOfWeek(date1));
+  EXPECT_EQ(3, determineDayOfWeek(date3));
+  EXPECT_EQ(1, determineDayOfWeek(date2));
 
 }
 //
