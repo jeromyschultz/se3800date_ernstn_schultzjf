@@ -72,3 +72,83 @@ int getDaysInMonth(int m, int y){
     }
   }
 }
+
+/**
+* Calculates which day of the week the given date is on
+* 0 is Sunday, 6 is Saturday
+*
+**/
+int determineDayOfWeek(Date date1){
+  int d = date1.getDay();
+  int m = staggerMonths(date1.getMonth());
+  int y = date1.getYear();
+
+  //splitting year in half
+  int firstHalf, secondHalf=0, len;
+  len = floor(log10(abs(y))) + 1;
+  firstHalf = y / pow(10, len / 2);
+  secondHalf = y - firstHalf * pow(10, len / 2);
+
+  int answer = d + (int)(((13*m)-1)/5) + secondHalf +
+  (int)(secondHalf/4) + (int)(firstHalf/4) - 2*firstHalf;
+
+  if(answer < 0){
+    int x = 0;
+    int i = 1;
+    while (x>answer){
+      x = -7 * i;
+      i++;
+    }
+    answer = abs(x-answer);
+
+  }else{
+    answer = answer % 7;
+  }
+
+  return answer;
+
+
+}
+
+bool isLeapYear(int y){
+  if (y % 4 != 0){
+    return false;
+  } else if (y % 25 != 0){
+    return true;
+  } else if (y % 16 != 0){
+    return false;
+  } else {
+    return true;
+  }
+}
+
+int staggerMonths(int m){
+  int x = 0;
+  if(m == 1){
+    x = 11;
+  }else if(m == 2){
+    x = 12;
+  }else if(m == 3){
+    x = 1;
+  }else if(m == 4){
+    x = 2;
+  }else if(m == 5){
+    x = 3;
+  }else if(m == 6){
+    x = 4;
+  }else if(m == 7){
+    x = 5;
+  }else if(m == 8){
+    x = 6;
+  }else if(m == 9){
+    x = 7;
+  }else if(m == 10){
+    x = 8;
+  }else if(m == 11){
+    x = 9;
+  }else if(m == 12){
+    x = 10;
+  }
+  return x;
+
+}
