@@ -6,7 +6,7 @@
 using namespace std;
 
 int main(int argc, char *argv[]){
-  string daysOfWeek[6] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
+  string daysOfWeek[7] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
   string command;
   string feature;
   string date1;
