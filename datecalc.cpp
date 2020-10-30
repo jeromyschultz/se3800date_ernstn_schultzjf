@@ -156,6 +156,10 @@ int determineDayOfWeek(Date date1){
   firstHalf = y / pow(10, len / 2);
   secondHalf = y - firstHalf * pow(10, len / 2);
 
+  if(m > 10){
+    secondHalf--;
+  }
+
   int answer = d + (int)(((13*m)-1)/5) + secondHalf +
   (int)(secondHalf/4) + (int)(firstHalf/4) - 2*firstHalf;
 
